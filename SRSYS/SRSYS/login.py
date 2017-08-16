@@ -1,31 +1,27 @@
-# -*- coding: gb2312 -*-
+# -*- coding: utf-8 -*-
  
 from django.shortcuts import render
 from django.views.decorators import csrf
-import sqlite3
+from Mysqldb.models import Score_Graph
 
-#´ò¿ªÊı¾İ¿âÎÄ¼ş
-conn = sqlite3.connect('.//Database//Score_Graph.db',check_same_thread = False)
-conn.text_factory = bytes
-print "Opened Database Successfully!!"
-database = conn.cursor()    #¹â±ê
-
-# ½ÓÊÕ Login ÇëÇó
+# æ¥æ”¶ Login è¯·æ±‚
 def Login(request):
+    Datebase_Return = ""
     ctx ={}
-    #return render(request, "index.html")
     if request.POST:
         try:
-            cursor = database.execute("SELECT COLOR,SKETCH,LINEDRAW,TOTAL  from Score_Graph where Name='"+str(request.POST['InputName'])+"' and StuNum="+str(request.POST['InputStuNum']))
-            for row in cursor:pass
-            ctx['name'] = request.POST['InputName']
-            ctx['studentnum'] = request.POST['InputStuNum']
-            ctx['color'] = row[0]
-            ctx['sketch'] = row[1]
-            ctx['linedraw'] = row[2]
-            ctx['total'] = row[3]
+            Datebase_Return=Score_Graph.objects.filter(id=int(request.POST['InputStuNum']),NAME=unicode(request.POST['InputName']))
+            
+            for var in Datebase_Return:pass       
+            ctx['name'] = var.NAME
+            ctx['studentnum'] = var.id
+            ctx['color'] = var.COLOR
+            ctx['sketch'] = var.SKETCH
+            ctx['linedraw'] = var.LINEDRAW
+            ctx['total'] = var.TOTAL
             return render(request, "result.html", ctx)
         except:
-            ctx['ErrorMessage'] = u'ÕËºÅ»òÃÜÂëÊäÈë´íÎó£¬Çë¼ì²é'
+            ctx['ErrorMessage'] = u'è´¦å·æˆ–å¯†ç è¾“å…¥é”™è¯¯ï¼Œè¯·æ£€æŸ¥'
+            
     return render(request, "index.html", ctx)
     

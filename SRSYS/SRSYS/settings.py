@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Mysqldb',
 ]
 
 MIDDLEWARE = [
@@ -84,11 +85,14 @@ WSGI_APPLICATION = 'SRSYS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'artScore',
+        'USER': 'team_worker',
+        'PASSWORD': '20170815',
+        'HOST':'119.29.28.136',
+        'PORT':'3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
