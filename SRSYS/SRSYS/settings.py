@@ -1,4 +1,4 @@
-# -*- coding: gb2312 -*-
+# -*- coding: utf-8 -*-
 """
 Django settings for SRSYS project.
 
@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-#±àÂëÉèÖÃ
+#ç¼–ç è®¾ç½®
 reload(sys)
 sys.setdefaultencoding('gb2312')
 FILE_CHARSET='gb2312'

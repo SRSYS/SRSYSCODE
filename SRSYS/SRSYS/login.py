@@ -10,11 +10,11 @@ def Login(request):
     ctx ={}
     if request.POST:
         try:
-            Datebase_Return=Score_Graph.objects.filter(id=int(request.POST['InputStuNum']),NAME=unicode(request.POST['InputName']))
+            Datebase_Return=Score_Graph.objects.filter(StuNum=unicode(request.POST['InputStuNum']),NAME=unicode(request.POST['InputName']))
             
-            for var in Datebase_Return:pass       
+            for var in Datebase_Return:pass
+            ctx['studentnum'] = var.StuNum
             ctx['name'] = var.NAME
-            ctx['studentnum'] = var.id
             ctx['color'] = var.COLOR
             ctx['sketch'] = var.SKETCH
             ctx['linedraw'] = var.LINEDRAW
