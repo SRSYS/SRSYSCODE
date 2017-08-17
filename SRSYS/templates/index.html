@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />  
 <title>广东省美术教育协会</title>
 <style type="text/css">
@@ -16,6 +16,8 @@
 	color: #999999;
 }
 .STYLE3 {
+    display:inline-block;
+    width:65px;height:30px;
 	font-size: 16px;
 	font-family: "宋体";
 }
@@ -30,6 +32,10 @@
 	font-size: 16px;
 	color: #999999;
 }
+.STYLE8 {
+	font-size: 16px;
+	font-family: "宋体";
+}
 -->
 </style>
 </head>
@@ -41,31 +47,36 @@
 <div align="center" class="STYLE2">2018 广东省美术术科一模成绩查询</div>
 <p>&nbsp;</p>
 <form action="/login" method="post">
-  {% csrf_token %}
-  <label>
-  <div align="center">
+  <p>{% csrf_token %}
+    <div align="center">
     <p><span class="STYLE3">考生姓名</span>
-      <input name="InputName" type="text" class="STYLE7" id="InputName" value="请输入考生姓名" maxlength="7"
+      <input name="InputName" type="text" class="STYLE7" id="InputName" value="请输入考生姓名" maxlength="7" style="width:200px; height:30px;"
 	   onfocus='if(this.value=="请输入考生姓名"){this.value="";}; '
-	   onblur='if(this.value==""){this.value="请输入考生姓名";};'>
-    </p>
-  </p>
+	   onblur='if(this.value==""){this.value="请输入考生姓名";};'></p>
   </div>
-  </label>
   <div align="center">
     <p><span class="STYLE3">准考证号</span>
-        <input name="InputStuNum" type="text" class="STYLE7" id="InputStuNum" value="请输入十位考生号" maxlength="10"
+        <input name="InputStuNum" type="text" class="STYLE7" id="InputStuNum" value="请输入十位考生号" maxlength="10" style="width:200px; height:30px;"
 		onfocus='if(this.value=="请输入十位考生号"){this.value="";}; '
 		onblur='if(this.value==""){this.value="请输入十位考生号";};'>
     </p>
   </div>
-  </label>
-  <p>&nbsp;</p>
   <div align="center">
-    <input type="submit" class="STYLE6" value="                查询                "  style="background:#7DB522;color:white " />
+    <p align="center"><span class="STYLE3">验证码</span>
+      <input name="InputVerifyCode" type="text" class="STYLE7" id="InputVerifyCode" value="请输入验证码" maxlength="6" style="width:117px; height:30px;"
+		onFocus='if(this.value=="请输入验证码"){this.value="";}; '
+		onBlur='if(this.value==""){this.value="请输入验证码";};'>
+      <img src="/code" width="83" height="40" align="absmiddle"></p>
   </div>
+  <div align="center">
+    <p>&nbsp;</p>
+    <p>
+      <input type="submit" class="STYLE6" value="查询"  style="width:230px;height:30px;background:#7DB522;color:white " />
+    </p>
+  </div>
+  <p align="center"><span class="STYLE8">{{ErrorMessage}}</span></p>
 </form>
-    <p align="center" class="STYLE3">{{ ErrorMessage }}</p>
+    <div align="center"></div>
 </body>
 
 </html>

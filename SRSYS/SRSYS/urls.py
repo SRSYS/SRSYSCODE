@@ -21,6 +21,7 @@ from . import login
   
 urlpatterns = [
     url(r'^$', view.index),
+    url(r'^code$', view.code),
     url(r'^login$', login.Login),
     url(r'^admin/', admin.site.urls),
 
