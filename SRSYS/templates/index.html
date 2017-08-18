@@ -26,6 +26,7 @@
 .STYLE6 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 18px;
+	-webkit-appearance : none ;  /*解决iphone safari上的圆角问题*/
 }
 .STYLE7 {
 	font-family: "宋体";
@@ -36,6 +37,25 @@
 	font-size: 16px;
 	font-family: "宋体";
 }
+.btm {
+ height:45px;
+z-index:999; position:fixed; bottom:0px; left:0px; width:100%; _position:absolute;
+ _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible ; background:url('{{Advertimg1}}');}
+ 
+.btm a {
+height:45px;
+display:block;
+}
+
+.btm2 {
+ height:45px;
+z-index:999; position:fixed; bottom:45px; left:0px; width:100%; _position:absolute;
+ _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible ; background:url('{{Advertimg2}}');}
+ 
+.btm2 a {
+height:45px;
+display:block;
+}
 -->
 </style>
 </head>
@@ -45,10 +65,9 @@
   <p>蓝天模考</p>
 </div>
 <div align="center" class="STYLE2">2018 广东省美术术科一模成绩查询</div>
-<p>&nbsp;</p>
 <form action="/login" method="post">
   <p>{% csrf_token %}
-    <div align="center">
+  <div align="center">
     <p><span class="STYLE3">考生姓名</span>
       <input name="InputName" type="text" class="STYLE7" id="InputName" value="请输入考生姓名" maxlength="7" style="width:200px; height:30px;"
 	   onfocus='if(this.value=="请输入考生姓名"){this.value="";}; '
@@ -76,7 +95,8 @@
   </div>
   <p align="center"><span class="STYLE8">{{ErrorMessage}}</span></p>
 </form>
-    <div align="center"></div>
+    <div class="btm2"><a href="{{Adverturl2}}"></a></div>
+    <div class="btm"><a href="{{Adverturl1}}"></a></div>
 </body>
 
 </html>
