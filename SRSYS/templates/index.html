@@ -81,7 +81,6 @@ display:block;
 <div align="center" class="STYLE2">2018 广东省美术术科一模成绩查询</div>
 <form action="/login" method="post">
   <p>{% csrf_token %}  </p>
-  <p>&nbsp;</p>
   <div align="center">
     <p><span class="STYLE3">考生姓名</span>
       <input name="InputName" type="text" class="STYLE7" id="InputName" value="请输入考生姓名" maxlength="7" style="width:200px; height:30px;"
@@ -108,7 +107,7 @@ display:block;
       <input type="submit" class="STYLE6" value="查询"  style="width:230px;height:30px;background:#7DB522;color:white " />
     </p>
   </div>
-  </form>
+</form>
     <div class="btm2"><a href="{{Adverturl2}}"></a></div>
     <div class="btm"><a href="{{Adverturl1}}"></a></div>
 </body>
