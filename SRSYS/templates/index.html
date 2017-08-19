@@ -4,15 +4,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />  
 <title>广东省美术教育协会</title>
+
 <style type="text/css">
 <!--
 .STYLE1 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 28px;
+	border:1px
+	position:absolute;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+	width:119px;height:41px;
 }
 .STYLE2 {
 	font-family: "宋体";
 	font-size: 14px;
+    border:1px
+	position:absolute;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:7px;
+	width:230px;height:23px;
 	color: #999999;
 }
 .STYLE3 {
@@ -56,6 +69,7 @@ z-index:999; position:fixed; bottom:45px; left:0px; width:100%; _position:absolu
 height:45px;
 display:block;
 }
+
 -->
 </style>
 </head>
@@ -66,14 +80,15 @@ display:block;
 </div>
 <div align="center" class="STYLE2">2018 广东省美术术科一模成绩查询</div>
 <form action="/login" method="post">
-  <p>{% csrf_token %}
+  <p>{% csrf_token %}  </p>
+  <p>&nbsp;</p>
   <div align="center">
     <p><span class="STYLE3">考生姓名</span>
       <input name="InputName" type="text" class="STYLE7" id="InputName" value="请输入考生姓名" maxlength="7" style="width:200px; height:30px;"
 	   onfocus='if(this.value=="请输入考生姓名"){this.value="";}; '
 	   onblur='if(this.value==""){this.value="请输入考生姓名";};'></p>
   </div>
-  <div align="center">
+  <div align="center" >
     <p><span class="STYLE3">准考证号</span>
         <input name="InputStuNum" type="text" class="STYLE7" id="InputStuNum" value="请输入十位考生号" maxlength="10" style="width:200px; height:30px;"
 		onfocus='if(this.value=="请输入十位考生号"){this.value="";}; '
@@ -88,13 +103,12 @@ display:block;
       <img src="/code" width="83" height="40" align="absmiddle"></p>
   </div>
   <div align="center">
-    <p>&nbsp;</p>
+    <p><span class="STYLE8">{{ErrorMessage}}</span></p>
     <p>
       <input type="submit" class="STYLE6" value="查询"  style="width:230px;height:30px;background:#7DB522;color:white " />
     </p>
   </div>
-  <p align="center"><span class="STYLE8">{{ErrorMessage}}</span></p>
-</form>
+  </form>
     <div class="btm2"><a href="{{Adverturl2}}"></a></div>
     <div class="btm"><a href="{{Adverturl1}}"></a></div>
 </body>

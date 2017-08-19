@@ -23,11 +23,11 @@ def Login(request):
         
         _code = request.POST['InputVerifyCode']
         
-        if _code!=u'请输入验证码' or request.POST['InputStuNum']!=u'请输入十位考生号' or request.POST['InputName']!=u'请输入考生姓名':
+        if _code!='请输入验证码' or request.POST['InputStuNum']!='请输入十位考生号' or request.POST['InputName']!='请输入考生姓名':
             code = Code(request)
             if code.check(_code):
                 try:
-                    Datebase_Return=Score_Graph.objects.filter(StuNum=unicode(request.POST['InputStuNum']),NAME=unicode(request.POST['InputName']))
+                    Datebase_Return=Score_Graph.objects.filter(StuNum=request.POST['InputStuNum'],NAME=request.POST['InputName'])
                     for var in Datebase_Return:pass
                     ctx['studentnum'] = var.StuNum
                     ctx['name'] = var.NAME
@@ -37,11 +37,11 @@ def Login(request):
                     ctx['total'] = var.TOTAL
                     return render(request, "result.html", ctx)
                 except:
-                    ctx['ErrorMessage'] = u'账号或密码输入错误，请检查'
+                    ctx['ErrorMessage'] = '账号或密码输入错误，请检查'
             else:
-                ctx['ErrorMessage'] = u'验证码输入错误，请重新输入'
+                ctx['ErrorMessage'] = '验证码输入错误，请重新输入'
                 
-        else:ctx['ErrorMessage'] = u'未输入完整'
+        else:ctx['ErrorMessage'] = '未输入完整'
         
     return render(request, "index.html", ctx)
     

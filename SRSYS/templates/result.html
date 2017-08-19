@@ -9,10 +9,29 @@
 .STYLE1 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 28px;
+	border:1px
+	position:absolute;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+	width:119px;height:41px;
 }
 .STYLE2 {
 	font-family: "宋体";
 	font-size: 14px;
+    border:1px
+	position:absolute;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:7px;
+	width:230px;height:23px;
+	color: #999999;
+}
+.STYLE3 {
+	font-family: "宋体";
+	font-size: 14px;
+	margin-top:50px;
+	width:230px;height:23px;
 	color: #999999;
 }
 .STYLE5 {
@@ -23,9 +42,12 @@
 .STYLE7 {
 	font-family: "宋体";
 	font-size: 14px;
+	margin-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+	width:230px;height:23px;
 	color: #F20505;
 }
-.STYLE8 {color: #F20505}
 .btm {
  height:45px;
 z-index:999; position:fixed; bottom:0px; left:0px; width:100%; _position:absolute;
@@ -53,12 +75,8 @@ display:block;
 <div align="center" class="STYLE1">
   <p>蓝天模考</p>
 </div>
-<div align="center" class="STYLE2">
-  <p>2018 广东省美术术科一模成绩查询</p>
-</div>
-<div align="center" class="STYLE2">
-  <p align="left">您的成绩如下</p>
-</div>
+<div align="center" class="STYLE2">2018 广东省美术术科一模成绩查询</div>
+<div align="left" class="STYLE3">您的成绩如下：</div>
 <div align="center">
   <table width="280" border="0" align="center">
     <tr>
@@ -93,9 +111,7 @@ display:block;
     </tr>
   </table>
   </div>
-<div align="center" class="STYLE7">
-      <p class="STYLE8">注：成绩单以试卷上的分数为准    </p>
-    </div>
+<div align="center" class="STYLE7">注：成绩单以试卷上的分数为准</div>
 
     <div class="btm2"><a href="{{Adverturl2}}"></a></div>
     <div class="btm"><a href="{{Adverturl1}}"></a></div>
