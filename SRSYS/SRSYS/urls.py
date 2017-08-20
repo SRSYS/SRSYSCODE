@@ -22,9 +22,9 @@ from . import login
 
   
 urlpatterns = [
-    url(r'^$', view.index),
-    url(r'^code$', view.code),
-    url(r'^login$', login.Login),
+    url(r'^$', view.index,name='index'),
+    url(r'^code$', view.code,name='code'),
+    url(r'^login$', login.Login,name='login'),
     url(r'^admin/', admin.site.urls),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

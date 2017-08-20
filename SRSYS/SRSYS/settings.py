@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 #编码设置
 #sys.setdefaultencoding('gb2312')
-FILE_CHARSET='gb2312'
+#FILE_CHARSET='gb2312'
 DEFAULT_CHARSET='utf-8'
 
 # Application definition
