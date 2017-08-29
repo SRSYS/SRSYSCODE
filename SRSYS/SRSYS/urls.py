@@ -23,8 +23,11 @@ from . import login
   
 urlpatterns = [
     url(r'^$', view.index,name='index'),
+    url(r'^ReturnIMG1$', view.ReturnIMG1,name='ReturnIMG1'),
+    url(r'^ReturnIMG2$', view.ReturnIMG2,name='ReturnIMG2'),
     url(r'^code$', view.code,name='code'),
     url(r'^login$', login.Login,name='login'),
     url(r'^admin/', admin.site.urls),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

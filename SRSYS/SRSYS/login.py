@@ -4,7 +4,6 @@ from django.shortcuts import render
 from django.views.decorators import csrf
 from Mysqldb.models import Score_Graph
 from Mysqldb.models import IMG
-
 from DjangoVerifyCode import Code
 
 # 接收 Login 请求

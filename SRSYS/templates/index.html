@@ -1,6 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script>
+function turnoff(obj){
+document.getElementById(obj).style.display="none";
+}
+function turnon(obj){
+document.getElementById(obj).style.display="inline";
+}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />  
 <title>广东省美术教育协会</title>
@@ -52,8 +60,8 @@
 }
 .btm {
  height:45px;
-z-index:999; position:fixed; bottom:0px; left:0px; width:100%; _position:absolute;
- _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible ; background:url('{{Advertimg1}}');}
+ display:block;
+z-index:999; position:fixed; bottom:0px; left:0px; width:100%; overflow:visible;background:url('/ReturnIMG1');}
  
 .btm a {
 height:45px;
@@ -62,8 +70,8 @@ display:block;
 
 .btm2 {
  height:45px;
-z-index:999; position:fixed; bottom:45px; left:0px; width:100%; _position:absolute;
- _top: expression_r(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); overflow:visible ; background:url('{{Advertimg2}}');}
+ display:block;
+z-index:999; position:fixed; bottom:45px; left:0px; width:100%; overflow:visible ; background:url('/ReturnIMG2');}
  
 .btm2 a {
 height:45px;
@@ -79,27 +87,27 @@ display:block;
   <p>蓝天模考</p>
 </div>
 <div align="center" class="STYLE2">2018 广东省美术术科一模成绩查询</div>
-<form action="/login" method="post">
+<form action="/login" autocomplete="off" method="post">
   <p>{% csrf_token %}  </p>
   <p>&nbsp;</p>
   <div align="center">
     <p><span class="STYLE3">考生姓名</span>
       <input name="InputName" type="text" class="STYLE7" id="InputName" value="请输入考生姓名" maxlength="7" style="width:200px; height:30px;"
-	   onfocus='if(this.value=="请输入考生姓名"){this.value="";}; '
-	   onblur='if(this.value==""){this.value="请输入考生姓名";};'></p>
+	   onfocus="turnoff('advert1');turnoff('advert2');if(this.value=='请输入考生姓名'){this.value='';}; "
+	   onblur="turnon('advert1');turnon('advert2');if(this.value==''){this.value='请输入考生姓名';};"></p>
   </div>
-  <div align="center" >
+  <div align="center">
     <p><span class="STYLE3">准考证号</span>
         <input name="InputStuNum" type="text" class="STYLE7" id="InputStuNum" value="请输入十位考生号" maxlength="10" style="width:200px; height:30px;"
-		onfocus='if(this.value=="请输入十位考生号"){this.value="";}; '
-		onblur='if(this.value==""){this.value="请输入十位考生号";};'>
+	   onfocus="turnoff('advert1');turnoff('advert2');if(this.value=='请输入十位考生号'){this.value='';}; "
+	   onblur="turnon('advert1');turnon('advert2');if(this.value==''){this.value='请输入十位考生号';};">
     </p>
   </div>
   <div align="center">
     <p align="center"><span class="STYLE3">验证码</span>
       <input name="InputVerifyCode" type="text" class="STYLE7" id="InputVerifyCode" value="请输入验证码" maxlength="6" style="width:117px; height:30px;"
-		onFocus='if(this.value=="请输入验证码"){this.value="";}; '
-		onBlur='if(this.value==""){this.value="请输入验证码";};'>
+	   onfocus="turnoff('advert1');turnoff('advert2');if(this.value=='请输入验证码'){this.value='';}; "
+	   onblur="turnon('advert1');turnon('advert2');if(this.value==''){this.value='请输入验证码';};">
       <img src="/code" width="83" height="40" align="absmiddle"></p>
   </div>
   <div align="center">
@@ -107,10 +115,12 @@ display:block;
     <p>
       <input type="submit" class="STYLE6" value="查询"  style="width:230px;height:30px;background:#7DB522;color:white " />
     </p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
   </div>
 </form>
-    <div class="btm2"><a href="{{Adverturl2}}"></a></div>
-    <div class="btm"><a href="{{Adverturl1}}"></a></div>
+    <div id="advert1" class="btm2"><a href="#" style="float:Right" onclick="javascript:turnoff('advert1')">X</a><a href="{{Adverturl2}}"></a></div>
+    <div id="advert2" class="btm"><a href="#" style="float:Right" onclick="javascript:turnoff('advert2')">X</a><a href="{{Adverturl1}}"></a></div>
 </body>
 
 </html>
