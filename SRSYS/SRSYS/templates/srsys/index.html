@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />  
 <title>广东省美术教育协会</title>
 <script>
-    function refresh_check_code(ths) {
+var ad1 = 1;
+var ad2 = 1;
+function refresh_check_code(ths) {
         ths.src += '?';
         //src后面加问号会自动刷新验证码img的src
         }
@@ -15,16 +17,40 @@ document.getElementById(obj).style.position="static";
 
 }
 
-function turnfixed(obj){
-document.getElementById(obj).style.position="fixed";
-}
-function turnoff(obj){
-document.getElementById(obj).style.display="none";
-}
-function turnon(obj){
-document.getElementById(obj).style.display="block";
+
+function turnoffad1(){
+document.getElementById('advert1').style.display="none";
+ad1=0;
 }
 
+function turnoffad2(){
+document.getElementById('advert2').style.display="none";
+ad2=0;
+}
+
+function turnoffad1nor(){
+document.getElementById('advert1').style.display="none";
+}
+
+function turnoffad2nor(){
+document.getElementById('advert2').style.display="none";
+}
+
+function turnonad1(){
+if(ad1==1){document.getElementById('advert1').style.display="block";}; 
+}
+
+
+function turnonad2(){
+if(ad2==1){document.getElementById('advert2').style.display="block";}; 
+}
+
+
+function tijiao(){
+if(document.getElementById('InputName').value==''||document.getElementById('InputStuNum').value==''){alert("考生信息输入不完整");}
+else{
+document.getElementById('GOGO').submit();}
+}
 </script>
 <style type="text/css">
 <!--
@@ -190,30 +216,30 @@ font-size: 30px
   <div class="weui-cells">
     <span class="STYLE11">　考生姓名</span>
       <input name="InputName" type="text" class="weui-input" id="InputName" placeholder="请输入考生姓名" maxlength="5"  style="width:150px;height:30px"
-	   onfocus="turnoff('advert1');turnoff('advert2'); "
-	   onblur="turnon('advert1');turnon('advert2');">
+	   onfocus="turnoffad1nor();turnoffad2nor(); "
+	   onblur="turnonad1();turnonad2();">
   </div>
   <div class="weui-cells">
     <span class="STYLE13">　准考证号</span>
        <input name="InputStuNum" type="text" class="weui-input" id="InputStuNum" placeholder="请输入十位考生号" maxlength="10" style="width:160px;height:30px"
-	   onfocus="turnoff('advert1');turnoff('advert2'); "
-	   onblur="turnon('advert1');turnon('advert2');"> 
+	   onfocus="turnoffad1nor();turnoffad2nor(); "
+	   onblur="turnonad1();turnonad2();"> 
   </div>
   <div  class="weui-cells">
     <span class="STYLE3">　验证码</span>
       <input name="InputVerifyCode" type="text" class="weui-input" id="InputVerifyCode" placeholder="请输入验证码" maxlength="6" style="width:120px;height:30px"
-	   onfocus="turnoff('advert1');turnoff('advert2'); "
-	   onblur="turnon('advert1');turnon('advert2');">
+	   onfocus="turnoffad1nor();turnoffad2nor(); "
+	   onblur="turnonad1();turnonad2();">
       <img src="/srsys/code/" width="65" height="35" onclick="refresh_check_code(this)" align="absmiddle">  </div>
    <div> 
    <p align="center" class="STYLE9">&nbsp;</p>
    <p align="center" class="STYLE4">{{ ErrorMessage }}</p>
    </div>
   <div align="center">
-    <a href="#" class="weui-btn weui-btn_primary" style="width:280px;" onclick="document.getElementById('GOGO').submit();return false" >查询</a>  </div>
+    <a href="#" class="weui-btn weui-btn_primary" style="width:280px;" onclick="tijiao();" >查询</a>  </div>
 </form>
-    <div id="advert2" class="btm2"><a href="#" style="float:Right" onclick="javascript:turnoff('advert2')">X</a></div>
-    <div id="advert1" class="btm"><a href="#" style="float:Right" onclick="javascript:turnoff('advert1')">X</a></div>
+    <div id="advert2" class="btm2"><a href="#" style="float:Right" onclick="javascript:turnoffad2()">X</a></div>
+    <div id="advert1" class="btm"><a href="#" style="float:Right" onclick="javascript:turnoffad1()">X</a></div>
 </body>
 
 </html>
